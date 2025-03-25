@@ -1,0 +1,105 @@
+/* General Body Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Tajawal', sans-serif; /* Use Tajawal font */
+    background-color: #f8f8f8; /* Very light grey background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Make body take full viewport height */
+    direction: rtl; /* Ensure right-to-left direction */
+}
+
+/* The Greeting Card */
+.card {
+    background-color: #ffffff; /* White background */
+    border: 6px solid #FFD700; /* Solid gold border */
+    border-radius: 15px; /* Slightly rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 600px; /* Maximum width */
+    width: 90%; /* Responsive width */
+    text-align: center;
+    overflow: hidden; /* Keeps corners clipped if they exceed border-radius */
+    padding: 20px; /* Padding around the content area */
+    position: relative; /* Needed for absolute positioning of corners */
+}
+
+/* Corner Image Styles */
+.corner-img {
+    position: absolute; /* Position relative to the card */
+    width: 120px; /* Adjust width as needed based on your image */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 1; /* Place above background, below potential future elements */
+    pointer-events: none; /* Make images non-interactive */
+}
+
+.corner-img.top-left {
+    top: -2px;  /* Adjust slightly to align with border */
+    left: -2px; /* Adjust slightly to align with border */
+    /* If your image isn't designed for the left, you might need:
+       transform: scaleX(-1); */
+}
+
+.corner-img.top-right {
+    top: -2px;   /* Adjust slightly to align with border */
+    right: -2px; /* Adjust slightly to align with border */
+}
+
+
+.card-content {
+    padding: 60px 20px 30px 20px; /* Increased top padding to avoid overlap with corners */
+    position: relative; /* Ensure content stays above corners if needed */
+    z-index: 2;
+}
+
+
+/* Main Arabic Greeting */
+.greeting {
+    color: #333; /* Dark grey color */
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+/* Additional Message */
+.message {
+    color: #555;
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* English Greeting */
+.english-greeting {
+    color: #B8860B; /* Darker gold */
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Team Name */
+.team-name {
+    color: #DAA520; /* Goldenrod */
+    font-size: 1.1em;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 480px) {
+    .greeting {
+        font-size: 2em;
+    }
+    .message, .english-greeting {
+        font-size: 1em;
+    }
+    .card-content {
+        padding: 50px 15px 20px 15px; /* Adjust padding */
+    }
+    .corner-img {
+        width: 90px; /* Smaller corners on small screens */
+    }
+}
